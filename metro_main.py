@@ -1,5 +1,7 @@
-# Main script for polling stuff for display
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
+'''Main script for polling stuff for display'''
+
 import config
 from twitter import Api
 import pychromecast
@@ -19,6 +21,7 @@ SLP = 1
 hour = int(strftime("%H"))
 
 ## SET a TELEGRTAM BOT (metraspbot)
+print("Setting up telegram bot..")
 bot = telegram.Bot(token=config.TELEGRAM_TOKEN)
 bot.get_updates()
 
@@ -193,7 +196,7 @@ while 1:
     #print(u'ok')
 
 
-    metweet = api.GetSearch("#metronäyttö",since = strftime("%Y-%m-%d",gmtime()))
+    metweet = api.GetSearch(u'#metronäyttö',since = strftime("%Y-%m-%d",gmtime()))
     if len(metweet) > 0:
         mtime = strptime(metweet[0].created_at, '%a %b %d %H:%M:%S +0000 %Y')
         if mktime(gmtime()) - mktime(mtime) < 3600:

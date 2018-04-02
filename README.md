@@ -13,10 +13,18 @@ https://hub.docker.com/r/resin/raspberry-pi-python/
 
 Systemd is somehow related to relaunch of the app:
 https://en.wikipedia.org/wiki/Systemd
+??
+http://www.diegoacuna.me/how-to-run-a-script-as-a-service-in-raspberry-pi-raspbian-jessie/
+ENV INITSYSTEM on
+COPY myservice.service /lib/systemd/system/
+RUN systemctl enable myservice.service
+RUN systemctl start myservice.service
+
 
 All you need to do is :
 
 * clone this repo locally
+* get .cache-«username» -file by running spotipy.util.prompt_for_user_token with computer using browser for the first time
 * connect 'serial converted to USB on RPI0W with ResinOS' in cardslot
 * add the resin to development machine
 * `sudo resin local push resin.local --source .`
