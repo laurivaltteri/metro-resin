@@ -3,10 +3,11 @@
 '''Main script for polling stuff for display'''
 
 import config
+import os
 from twitter import Api
 import pychromecast
 import spotipy, spotipy.util
-from time import sleep, strftime, strptime, gmtime, mktime
+from time import tzset, sleep, strftime, strptime, gmtime, mktime
 import datetime
 from serial import Serial, SEVENBITS, STOPBITS_ONE, PARITY_EVEN
 from random import randint
@@ -19,6 +20,11 @@ import feedparser
 STX = chr(2); ETX = chr(3); EOT = chr(4); ENQ = chr(5); PAD = chr(127)
 SLP = 1
 hour = int(strftime("%H"))
+
+## SET timezone
+print("Setting timezone..")
+os.environ['TZ'] = 'Europe/Helsinki'
+tzset()
 
 ## SET a TELEGRTAM BOT (metraspbot)
 print("Setting up telegram bot..")
