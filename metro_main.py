@@ -118,7 +118,9 @@ def clear_scands(message):
 
 def default_disp():
     # WRITE INFO
-    write_line(u'Tweet', 3)
+    tstr = "%s:%s" % (strftime("%H"), strftime("%M"))
+    info = u'Tweet'.ljust(5)+tstr.rjust(5)
+    write_line(info, 3)
 
     # TWITTER TRENDS
     # WOE_ID for Finland not existing
@@ -183,7 +185,11 @@ def cast_info(cc,mc,dname):
 def spotify_info(sitem):
     artist = sitem['item']['artists'][0]['name']
     song = sitem['item']['name']
-    write_line(u'Sptfy', 3)
+
+    tstr = "%s:%s" % (strftime("%H"), strftime("%M"))
+    info = u'Sptfy'.ljust(5)+tstr.rjust(5)
+    write_line(info, 3)
+
     write_line(song, 1)
     write_line(artist, 2)
 

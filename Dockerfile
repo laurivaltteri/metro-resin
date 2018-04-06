@@ -1,8 +1,6 @@
 FROM resin/raspberry-pi-python:latest
 # Enable systemd
 ENV INITSYSTEM on
-# howto RESIN_SUPERVISOR_RESTART_POLICY on
-
 
 # Install Python packages
 RUN pip install --upgrade pip
