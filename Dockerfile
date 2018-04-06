@@ -10,6 +10,7 @@ RUN pip install python-telegram-bot --upgrade
 RUN pip install --upgrade pip enum34
 RUN pip install --upgrade zeroconf==0.19.1
 RUN pip install feedparser
+RUN pip install os
 
 # copy current directory into /app
 WORKDIR /app
