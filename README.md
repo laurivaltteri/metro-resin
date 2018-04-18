@@ -2,9 +2,13 @@
 This is metro display control on the Rasperry Pi using Python with ResinOS
 
 The serial device should be mounted to "/dev/ttyUSB0"
+Please see http://sooda.dy.fi/2013/3/29/omaa-tekstia-metronayttoihin/
+and https://github.com/sooda/metro_station_display for more info on circuit design.
+And for me only working adapter was: http://www.aten.com/global/en/products/usb-&-thunderbolt/usb-converters/uc232a/
 
 Some guides:
 https://resinos.io/docs/raspberry-pi/gettingstarted/
+
 Some info:
 https://runnable.com/docker/python/dockerize-your-python-application
 
