@@ -27,6 +27,6 @@ All you need to do is :
 * get .cache-«username» -file by running spotipy.util.prompt_for_user_token with computer using browser for the first time
 * connect 'serial converted to USB on RPI0W with ResinOS' in cardslot
 * add the resin to development machine
-* `sudo resin local push «devname».local --source .`
-  * debugging: `ssh root@«devname».local -p22222`
+* `sudo resin local push «devname».local --source .`  
+  * debugging: `ssh root@«devname».local -p22222`  
 * enjoy the timely info on the display...
