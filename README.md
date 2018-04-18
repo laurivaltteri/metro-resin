@@ -28,5 +28,5 @@ All you need to do is :
 * connect 'serial converted to USB on RPI0W with ResinOS' in cardslot
 * add the resin to development machine
 * `sudo resin local push «devname».local --source .`
-  - debugging: `ssh root@«devname».local -p22222`
+  * debugging: `ssh root@«devname».local -p22222`
 * enjoy the timely info on the display...
