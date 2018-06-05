@@ -77,17 +77,17 @@ def write_line(message, seg):
     if seg == 3:
         send_ser(STX + "32000blT" + clear_scands(message) + ETX + "p")
     elif seg == 2 and len(message) < 22:
-        send_ser(STX + "22000nrT" + clear_scands(message) + ETX + "p")
+        send_ser(STX + "22000nlT" + clear_scands(message) + ETX + "p")
     elif seg == 1 and len(message) < 22:
-        send_ser(STX + "12000nrT" + clear_scands(message) + ETX + "p")
+        send_ser(STX + "12000nlT" + clear_scands(message) + ETX + "p")
     elif len(message) > 21:
         spaces = [m.start(0) for m in re.finditer(u' ', message)]
         #spaces = [x - len(message) for x in spaces]
         spltidx = [i for i in spaces if i < 21]
         if len(spltidx) > 0:
-            send_ser(STX + "12000nrT" + clear_scands(message[:spltidx[-1]]) + ETX + "p")
+            send_ser(STX + "12000nlT" + clear_scands(message[:spltidx[-1]]) + ETX + "p")
         else:
-            send_ser(STX + "12000nrT" + clear_scands(message[:20]) + ETX + "p")
+            send_ser(STX + "12000nlT" + clear_scands(message[:20]) + ETX + "p")
         send_ser(EOT)
         sleep(SLP)
         send_ser(EOT)
