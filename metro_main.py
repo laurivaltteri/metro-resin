@@ -179,13 +179,13 @@ def cast_info(cc,mc,dname):
         write_line(mc.media_custom_data['item']['title'], 2)
     elif u'subtitle' in mc.media_metadata:
         write_line(mc.media_metadata[u'subtitle'], 2)
-    else:
+    #elif:
         # DATE
-        dayn = int(strftime("%d"))
-        dayn = "%d%s" % (dayn, "tsnrhtdd"[(dayn/10%10!=1) * (dayn%10<4) * dayn%10::4])
+        #dayn = int(strftime("%d"))
+        #dayn = "%d%s" % (dayn, "tsnrhtdd"[(dayn/10%10!=1) * (dayn%10<4) * dayn%10::4])
 
-        dateln = strftime("%a ") + dayn + strftime(" of %b, %Y")
-        write_line(dateln, 2)
+        #dateln = strftime("%a ") + dayn + strftime(" of %b, %Y")
+        #write_line(dateln, 2)
 
 
 def spotify_info(sitem):
@@ -209,6 +209,15 @@ while 1:
 
 
     metweet = api.GetSearch(u'#metronäyttö',since = strftime("%Y-%m-%d",gmtime()))
+
+    for cc in chromecasts:
+        cc.wait()
+        cc.media_controller._fire_status_changed()
+
+    cclist = [cc for cc in chromecasts if
+        cc.media_controller.status.player_state ==  u'PLAYING' or
+        cc.status.display_name == u'Ruutu']
+
     if len(metweet) > 0:
         mtime = strptime(metweet[0].created_at, '%a %b %d %H:%M:%S +0000 %Y')
         if mktime(gmtime()) - mktime(mtime) < 3600:
@@ -227,24 +236,10 @@ while 1:
     if sp.currently_playing() != None:
         if sp.currently_playing()['is_playing']==True:
             spotify_info(sp.currently_playing())
-        else:
-            for cc in chromecasts:
-                cc.wait()
-                cc.media_controller._fire_status_changed()
-                mc = cc.media_controller.status
-                if mc.player_state == u'PLAYING' or cc.status.display_name == u'Ruutu':
-                    cast_info(cc, mc, cc.status.display_name)
-                else:
-                    default_disp()
-                    #news_disp()
+    elif len(cclist) > 0:
+        for cc in cclist:
+            cast_info(cc, cc.media_controller.status, cc.status.display_name)
     else:
-        for cc in chromecasts:
-            cc.wait()
-            cc.media_controller._fire_status_changed()
-            mc = cc.media_controller.status
-            if mc.player_state == u'PLAYING' or cc.status.display_name == u'Ruutu':
-                cast_info(cc, mc, cc.status.display_name)
-            else:
-                default_disp()
-                #news_disp()
+        default_disp()
+        #news_disp()
     sleep(SLP)

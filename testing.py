@@ -1,6 +1,17 @@
 import telegram
 import config
 import datetime
+import sys
+import feedparser
+print (sys.version)
+import pychromecast
+
+
+cnames = pychromecast.discover_chromecasts(timeout = 10)
+chromecasts = pychromecast.get_chromecasts(cnames)
+
+
+
 bot = telegram.Bot(token=config.TELEGRAM_TOKEN)
 bot.get_updates()
 
