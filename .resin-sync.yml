@@ -1,7 +1,7 @@
 local_resinos:
   app-name: local-app
   build-triggers:
-    - Dockerfile: 20195621797386fd909c53f516c2a81236876cf36231892c7b4f8b0b9e1ba776
+    - Dockerfile: 3eb8e5b389134131c24d7ed6efc17417f5fad874240cce33b47d2ae867b03368
   environment: []
 destination: /usr/src/app
 ignore:

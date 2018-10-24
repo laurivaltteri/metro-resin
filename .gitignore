@@ -1,3 +1,4 @@
 config.py
 __*__
 .cache-ahonenlauri
+.resin-sync.yml
