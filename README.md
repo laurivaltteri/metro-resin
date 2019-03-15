@@ -1,4 +1,9 @@
 # Metrotaulu Python on ResinOS
+
+**
+requires update to balenaOS (resinOS follower)
+**
+
 This is metro display control on the Rasperry Pi using Python with ResinOS
 
 The serial device should be mounted to "/dev/ttyUSB0"
