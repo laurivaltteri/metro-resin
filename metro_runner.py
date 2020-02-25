@@ -43,8 +43,8 @@ cnames = pychromecast.discover_chromecasts(timeout = 10)
 print("%d chromecasts found" % len(cnames))
 chromecasts = pychromecast.get_chromecasts()
 shortnames = {u'YouTube': u'Tube', u'Yle Areena': u'Yle', u'HBO Nordic': u'HBO',
-    u'Netflix': u'Flix',u'Katsomo Chromecast APP': u'MTV3',
-    u'Katsomo Chromecast Desktop':u'MTV3', u'Spotify': u'Sptfy',
+    u'Netflix': u'Flix',u'MTV Chromecast APP': u'MTV3',
+    u'MTV Chromecast Desktop':u'MTV3', u'Spotify': u'Sptfy',
     u'Google Play': u'Play ', u'Viaplay': u'Vplay'}
 
 ## SET SPOTIFY API
